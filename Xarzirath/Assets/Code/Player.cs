@@ -58,4 +58,9 @@ public class Player : MonoBehaviour
             grounded = false;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        grounded = true;
+    }
 }
