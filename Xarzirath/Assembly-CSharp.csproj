@@ -54,6 +54,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets/Code/Player.cs" />
+    <Compile Include="Assets/Code/HealthKeeper.cs" />
+    <Compile Include="Assets/Code/Interactives.cs" />
+    <Compile Include="Assets/Code/Enemies.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
