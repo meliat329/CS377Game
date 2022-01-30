@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{3F9B9EE5-E65A-6220-B716-FA2FA1405175}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/Interactives.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/Player.cs">
     <Files>
-      <File FileName="Assets/Code/Player.cs" Line="25" Column="45" />
+      <File FileName="Assets/Code/Player.cs" Line="62" Column="1" />
       <File FileName="Assets/Code/HealthKeeper.cs" Line="11" Column="6" />
       <File FileName="Assets/Code/Enemies.cs" Line="23" Column="9" />
-      <File FileName="Assets/Code/Interactives.cs" Line="7" Column="29" />
+      <File FileName="Assets/Code/Interactives.cs" Line="19" Column="87" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
