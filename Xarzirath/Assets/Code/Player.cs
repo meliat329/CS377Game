@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //use float for % so we can scale a health bar?
-    public float health = 1;
+    
+    public int health = 100;
     //
 
     //we can use ints to differentiate between weapons
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public float speed;
     //
 
+    private bool attack = false;
     private bool grounded = true;
     private Rigidbody2D rigid;
 
@@ -57,10 +58,51 @@ public class Player : MonoBehaviour
             rigid.velocity += Vector2.up * jump;
             grounded = false;
         }
+
+        //attack, i just choose f bc that seems like a comfy hand position but
+        //we can change it to whatever
+        //should we be able to attack wihtout a sword (i.e sword == 0)?
+        if (Input.GetKey(KeyCode.F))
+        {
+            attack = true;
+            Invoke("end_attack", 2);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         grounded = true;
+        if (collision.collider.gameObject.tag == "Enemy")
+        {
+            Enemies e = collision.collider.GetComponent<Enemies>();
+
+            //we need some sort of bubble where we can hit without actively touching the
+            //enemy, making the box collider bigger would not work as the enemy could then
+            //damage you without looking like they touched you
+            if (attack)
+            {
+                print("work");
+                //strength of weapon determines 
+                e.hit(sword);
+            }
+            //jump to kill
+            else if (collision.collider.bounds.center.y <= collision.otherCollider.bounds.min.y)
+            {
+                e.hit(1);
+            }
+            else
+            {
+                //reduce health, integrate shield component how?
+                health -= e.strength;
+                HealthKeeper.UpdateHealth(health);
+                //if health is low enough we die
+            }
+        }
+    }
+
+    private void end_attack()
+    {
+        attack = false;
     }
 }
+
