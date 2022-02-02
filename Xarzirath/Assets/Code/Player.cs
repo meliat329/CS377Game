@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         grounded = true;
+        HealthKeeper.UpdateHealth(100);
     }
 
     // Update is called once per frame
